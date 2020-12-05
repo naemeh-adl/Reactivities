@@ -1,5 +1,4 @@
-﻿using System;
-using Domain;
+﻿using Domain;
 using Microsoft.EntityFrameworkCore;
 
 namespace Persistence
@@ -11,12 +10,14 @@ namespace Persistence
             
         }
         public DbSet<Value> Values { get; set; }
+        public DbSet<Activity> Activities { get; set; }
        protected override void OnModelCreating(ModelBuilder Builder){
           Builder.Entity<Value>().HasData(
                 new Value{Id=1, Name="Val 101"},
                 new Value{Id=2, Name="Val 102"},
                 new Value{Id=3, Name="Val 103"}
             );
+         //   Builder.Entity<Activity>().ToTable("Activity");//by adl
        }
     }
 }
